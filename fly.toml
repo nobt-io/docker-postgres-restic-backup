@@ -1,0 +1,12 @@
+# fly.toml file generated for nobt-db-backup on 2022-09-04T19:02:07+02:00
+
+app = "nobt-db-backup"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true

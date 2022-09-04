@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+
+rm -rf /var/opt/pg_backup
+mkdir -p /var/opt/pg_backup
+
+# Requires the following env variables to be set:
+#
+# PGHOST
+# PGUSER
+# PGPASSWORD
+# PGDATABASE
+
+pg_dump --format directory -f /var/opt/pg_backup/
+
+# Requires the following env variables to be set:
+#
+# RESTIC_REPOSTIORY
+# RESTIC_PASSWORD
+# AWS_ACCESS_KEY_ID
+# AWS_SECRET_ACCESS_KEY
+
+restic backup /var/opt/pg_backup

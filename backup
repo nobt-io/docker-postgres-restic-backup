@@ -12,7 +12,7 @@ mkdir -p /var/opt/pg_backup
 # PGPASSWORD
 # PGDATABASE
 
-pg_dump --format directory -f /var/opt/pg_backup/
+pg_dump --format=plain --inserts --rows-per-insert=100 > /var/opt/pg_backup/backup.sql
 
 # Requires the following env variables to be set:
 #
